@@ -267,6 +267,7 @@ DEPENDENCIES
   capybara
   debug
   dockerfile-rails (>= 1.5)
+  execjs
   importmap-rails
   jbuilder
   pg (~> 1.1)
