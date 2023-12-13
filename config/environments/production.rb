@@ -71,18 +71,18 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "football_picks_hub_production"
 
-  config.action_mailer.default_url_options = { host: 'football-picks-hub.fly.dev' }
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'dave@football-picks-hub.fly.dev',
+    domain: 'admin@football-picks-hub.fly.dev',
     user_name: 'apikey',
     password: Rails.application.credentials.sendgrid_api_key,
     authentication: :plain,
     enable_starttls_auto: true
 }
+
+config.action_mailer.default_url_options = { host: 'football-picks-hub.fly.dev' }
 
   config.action_mailer.perform_caching = false
 
