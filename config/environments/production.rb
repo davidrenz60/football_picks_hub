@@ -73,6 +73,17 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'football-picks-hub.fly.dev' }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'football-picks-hub.fly.dev',
+    user_name: 'apikey',
+    password: Rails.application.credentials.sendgrd_api_key
+    authentication: :plain,
+    enable_starttls_auto: true
+}
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

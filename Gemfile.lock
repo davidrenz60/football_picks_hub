@@ -133,6 +133,10 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     libv8-node (18.16.0.0-x86_64-darwin)
     libv8-node (18.16.0.0-x86_64-linux)
     loofah (2.22.0)
@@ -287,6 +291,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.5)
   importmap-rails
   jbuilder
+  letter_opener
   mini_racer
   pg (~> 1.1)
   puma (>= 5.0)
