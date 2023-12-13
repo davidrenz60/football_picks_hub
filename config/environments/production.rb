@@ -77,7 +77,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'football-picks-hub.fly.dev',
+    domain: 'dave@football-picks-hub.fly.dev',
     user_name: 'apikey',
     password: Rails.application.credentials.sendgrid_api_key,
     authentication: :plain,
