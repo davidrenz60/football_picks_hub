@@ -79,7 +79,7 @@ Rails.application.configure do
     port: 587,
     domain: 'football-picks-hub.fly.dev',
     user_name: 'apikey',
-    password: Rails.application.credentials.sendgrd_api_key
+    password: Rails.application.credentials.sendgrd_api_key,
     authentication: :plain,
     enable_starttls_auto: true
 }
