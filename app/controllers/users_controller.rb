@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
-  def dashboard
+  before_action :authenticate_user!
+
+  def index
+    @users = User.all
   end
 end
