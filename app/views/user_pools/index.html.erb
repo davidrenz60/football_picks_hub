@@ -1,0 +1,10 @@
+<div class="w-75 m-auto">
+
+  <ul>
+    <% @pools.each do |pool| %>
+      <li>
+        <%= link_to pool.name, user_pool_path(pool) %>
+    </li>
+    <% end %>
+  </ul>
+</div>

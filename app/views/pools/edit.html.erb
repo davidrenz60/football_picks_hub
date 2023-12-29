@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "edit_pool_name" do %>
+  <%= form_for @pool do |f| %>
+    <div class="input-group">
+      <%= f.text_field :name, class: "form-control", autocomplete: "name", placeholder: "name" %>
+      <%= f.submit "Edit", class: "btn btn-outline-primary" %>
+      <%= link_to 'Cancel', pool_path(@pool), class: "btn btn-outline-danger" %>
+    </div>
+    <% end %>
+<% end %>

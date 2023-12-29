@@ -14,8 +14,29 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
+
+@media (min-width: 768px) {
+  #sidebar {
+    height: 100vh;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.alert {
+  margin-bottom: 0;
+  border-radius: 0;
+}
 
 .user-form {
   max-width: 330px;
+}
+
+.show-when-only:not(:only-child) {
+  display: none;
 }
 

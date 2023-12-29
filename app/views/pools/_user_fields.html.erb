@@ -1,0 +1,7 @@
+<div class="form-floating mb-2 d-flex">
+  <%= form.text_field :email, class: "form-control", autocomplete: "email", placeholder: "email" %>
+  <%= form.label :email %>
+  <%= link_to_remove_nested(form, link_classes: "align-self-center ms-4") do %>
+     <i class="fa fa-x fa-xl">
+  <% end %>
+</div>

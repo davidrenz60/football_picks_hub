@@ -1,0 +1,42 @@
+<div class="w-75 m-auto">
+  <%= turbo_frame_tag "edit_pool_name" do %>
+    <div class="d-flex">
+      <h2 class="me-4"><%=@pool.name %></h2>
+      <div class="ms-auto">
+        <%= link_to edit_pool_path(@pool), class: "btn btn-primary" do %>
+          <%= icon('fa-solid', 'pen', class: "me-1")%>
+          Edit
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <h4 class="my-3">Members</h4>
+  <ul class="list-group mb-4">
+    <%= turbo_frame_tag "users" do %>
+      <p class="show-when-only">No members yet</p>
+      <% @pool.users.each do |user| %>
+        <%= render "user", user: user %>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <%= turbo_frame_tag "add_user" do %>
+    <%= form_with model: @pool, url: add_user_pool_path, method: :post, data: { controller: 'forms', action: 'turbo:submit-end->forms#resetField'} do |f| %>
+      <div class="input-group">
+        <%= f.text_field :user_email, class: "form-control", placeholder: "Email" %>
+        <%= f.submit "Add Member", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class ="mt-5">
+    <%= button_to pool_path(@pool), method: :delete, class: "btn btn-danger", form: { data: { confirm: "Are you sure you want to delete?", turbo: false              } } do %>
+       <%= icon('fa-solid', 'trash', class: "me-1")%>
+       Delete Pool
+     <% end %>
+  </div>
+</div>
+
+
+

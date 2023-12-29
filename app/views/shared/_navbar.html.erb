@@ -1,6 +1,10 @@
-<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark shadow" aria-label="Third navbar example">
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark shadow" aria-label="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Football Picks Hub</a>
+    <%= link_to user_root_path, class: "navbar-brand" do %>
+      <%= icon("fa-solid", "football", class: "me-1") %>
+      Football Picks Hub
+    <% end %>
+    <span class="navbar-brand ms-3"><%= current_user.email %></span>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#user-sidebar-menu" aria-controls="menu-collapse" aria-expanded="false" aria-label="Toggle sidebar">
     <span class="navbar-toggler-icon"></span>
   </button>

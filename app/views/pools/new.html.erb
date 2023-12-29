@@ -1,0 +1,25 @@
+<div class="w-75 m-auto">
+  <h2>Create a New Pool</h2>
+
+  <%= form_for @pool do |f| %>
+    <div class="form-floating mb-4">
+      <%= f.text_field :name, class: "form-control", autocomplete: "name", placeholder: "name" %>
+      <%= f.label :name %>
+    </div>
+
+    <div class="d-flex">
+      <h3 class="me-3">Invitations</h3>
+      <%= link_to_add_nested(f, :users, '#users-fields', link_classes: "btn btn-primary mb-3", link_text: "Add") %>
+    </div>
+    <div id="users-fields">
+      <%= f.fields_for :users do |user_form| %>
+        <%= render "user_fields", form: user_form %>
+      <% end %>
+    </div>
+
+
+    <%= f.submit "Create", class: "btn btn-primary w-100 mt-3" %>
+  <% end %>
+</div>
+
+

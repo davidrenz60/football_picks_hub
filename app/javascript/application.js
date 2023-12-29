@@ -4,7 +4,4 @@ import "controllers"
 
 import "@popperjs/core"
 import "bootstrap"
-
-console.log('working?')
-
-
+import "vanilla-nested"

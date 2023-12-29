@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+      <%= render 'shared/navbar' %>
+    </header>
+    <div id="flash_messages">
+      <%= render 'shared/flash_messages' %>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="border-end col-md-3 col-lg-2 bg-body-tertiary pt-3" id="sidebar">
+          <%= render 'shared/sidebar' %>
+        </div>
+        <main class="col-md-9 col-lg-10 pt-3">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

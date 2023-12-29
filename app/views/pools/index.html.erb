@@ -1,0 +1,19 @@
+<div class="w-75 m-auto">
+  <div class="d-flex mb-3">
+    <h2>My Pools</h2>
+    <div class="ms-auto">
+      <%= link_to new_pool_path, class: "btn btn-primary" do %>
+        <%= icon('fa-solid', 'plus', class: "me-1")%>
+        New Pool
+      <% end %>
+    </div>
+  </div>
+  <ul>
+    <% @pools.each do |pool| %>
+      <li>
+        <%= link_to pool.name, pool_path(pool) %>
+      </li>
+    <% end %>
+  </ul>
+  </div>
+</div>

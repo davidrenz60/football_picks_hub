@@ -1,0 +1,8 @@
+<%= turbo_frame_tag user do %>
+  <li class="list-group-item d-flex align-items-center">
+    <span class="me-auto"><%= user.email %></span>
+    <%= button_to remove_user_pool_path(@pool, user), method: :delete, class: "btn btn-sm btn-danger", form: { data: { turbo_confirm: "Are you sure you want to delete #{user.email}? "} } do %>
+       <%= icon("fa-solid", "minus", class: "fa-lg") %>
+     <% end %>
+  </li>
+<% end %>

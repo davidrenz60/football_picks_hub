@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_12_130458) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_26_221932) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "game_id"
+    t.string "season_type"
+    t.string "away"
+    t.date "game_date"
+    t.string "espn_id"
+    t.string "team_id_home"
+    t.string "game_status"
+    t.string "game_week"
+    t.string "team_id_away"
+    t.string "home"
+    t.time "game_time"
+    t.string "season"
+    t.boolean "neutral_site"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creator_id", null: false
+    t.index ["creator_id"], name: "index_pools_on_creator_id"
+  end
+
+  create_table "user_pools", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "pool_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pool_id"], name: "index_user_pools_on_pool_id"
+    t.index ["user_id", "pool_id"], name: "index_user_pools_on_user_id_and_pool_id", unique: true
+    t.index ["user_id"], name: "index_user_pools_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_12_130458) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pools", "users", column: "creator_id"
+  add_foreign_key "user_pools", "pools"
+  add_foreign_key "user_pools", "users"
 end
