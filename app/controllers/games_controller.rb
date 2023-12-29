@@ -5,7 +5,7 @@ class GamesController < ApplicationController
     conn = Faraday.new(
       url: "https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLGamesForWeek?week=1&seasonType=reg&season=2023",
       headers: {
-        'X-RapidAPI-Key': '9af3a77c52msh0983dc4308a2ab9p1888f5jsn79ffa051e249',
+        'X-RapidAPI-Key': Rails.application.credentials.X_RapidAPI_Key,
         'X-RapidAPI-Host': 'tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com'
       }
     )
