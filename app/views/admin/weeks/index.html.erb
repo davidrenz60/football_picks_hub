@@ -1,0 +1,7 @@
+<ul>
+  <% (1..@weeks).each do |week| %>
+    <li>
+      <%= link_to "Week #{week}", admin_week_path(week.to_s) %>
+    </li>
+  <% end %>
+</ul>

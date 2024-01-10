@@ -1,0 +1,11 @@
+<h2><%= "#{@season} Season Week #{@week}" %></h2>
+<%= button_to "Update Scores", admin_season_week_update_path(@season, @week), method: :patch, class: "btn btn-primary mb-4" %>
+
+<ul>
+  <% @games.each do |game| %>
+    <li>
+      <%= "#{game.away}(#{game.home_pts}) vs. #{game.home}(#{game.away_pts})" %>
+      <%= game.game_id %>
+    </li>
+  <% end %>
+</ul>

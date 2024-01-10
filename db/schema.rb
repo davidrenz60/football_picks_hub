@@ -10,24 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_26_221932) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_31_222905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.string "game_id"
-    t.string "season_type"
     t.string "away"
+    t.string "home"
+    t.string "team_id_away"
+    t.string "team_id_home"
+    t.time "game_time"
+    t.string "game_id"
+    t.integer "away_pts"
+    t.integer "home_pts"
+    t.string "game_clock"
+    t.string "game_status"
+    t.string "season_type"
     t.date "game_date"
     t.string "espn_id"
-    t.string "team_id_home"
-    t.string "game_status"
     t.string "game_week"
-    t.string "team_id_away"
-    t.string "home"
-    t.time "game_time"
     t.string "season"
-    t.boolean "neutral_site"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_26_221932) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
 
         "dashboard"
     end
+
+    def require_admin
+        redirect_to :root_path, alert: "Not authorized to view that page" unless current_user&.admin?
+    end
 end

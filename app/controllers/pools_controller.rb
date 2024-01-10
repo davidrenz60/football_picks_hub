@@ -67,7 +67,7 @@ class PoolsController < ApplicationController
 
   def require_pool_creator
     @pool = Pool.find(params[:id])
-    redirect_to root_path, alert: "Not authorized to view that page."if @pool.creator_id != current_user.id
+    redirect_to root_path, alert: "Not authorized to view that page" if @pool.creator_id != current_user.id
   end
 
   def process_user_emails

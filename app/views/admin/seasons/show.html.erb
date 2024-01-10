@@ -1,0 +1,11 @@
+<h2><%= @season %></h2>
+
+<ul>
+  <% (1..Game::WEEKS).each do |week_number| %>
+    <li>
+      <%= link_to "Week #{week_number}", admin_season_week_path(@season, week_number) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Delete season", admin_season_path(@season), data: { turbo_method: :delete }, class: "btn btn-danger" %>

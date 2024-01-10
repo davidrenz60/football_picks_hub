@@ -12,19 +12,13 @@
         <% end %>
       </li>
       <li>
-        <%= link_to pools_path, class: "nav-link" do %>
-          <%= icon('fa-solid', 'gear', class: "me-2")%>
-          Manage Pools
-        <% end %>
-      </li>
-      <li>
         <%= link_to user_pools_path(current_user), class: "nav-link" do %>
         <%= icon('fa-solid', 'user-group', class: "me-2")%>
         My Pools
         <% end %>
       </li>
       <li>
-        <%= link_to games_path, class: "nav-link" do %>
+        <%= link_to "#", class: "nav-link" do %>
         <%= icon('fa-solid', 'football', class: "me-2")%>
         Games Schedule
         <% end %>
@@ -33,8 +27,23 @@
     <hr class="my-3">
     <ul class="nav flex-column">
       <li>
-        <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+        <%= link_to pools_path, class: "nav-link" do %>
+          <%= icon('fa-solid', 'gear', class: "me-2")%>
+          Manage Pools
+        <% end %>
       </li>
+      <li>
+        <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" do %>
+          <%= icon('fa-solid', 'arrow-right-from-bracket', class: "me-2")%>
+          Logout
+        <% end %>
+      </li>
+      <% if admin? %>
+        <%= link_to admin_root_path, class: "nav-link" do %>
+          <%= icon('fa-solid', 'lock', class: "me-2")%>
+          Admin
+        <% end %>
+      <% end %>
     </ul>
   </div>
 </div>

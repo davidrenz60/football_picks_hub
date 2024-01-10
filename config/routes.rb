@@ -10,7 +10,13 @@ Rails.application.routes.draw do
     root to: 'dashboard#index', as: :user_root
   end
 
-  resources :games, only: [:index]
+  namespace :admin do
+    root to: "dashboard#index"
+    resources :seasons, only: [:index, :create, :show, :destroy] do
+      get "week/:week_id", to: "seasons#week", as: "week"
+      patch "week/:week_id", to: "seasons#update_week", as: "week_update"
+    end
+  end
 
   resources :users, only: [:index] do
     member do

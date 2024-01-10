@@ -1,0 +1,19 @@
+<h2>Manage Seasons</h2>
+
+<p>Loaded Seasons</p>
+
+<ul>
+  <% @seasons.each do |season| %>
+    <li>
+      <%= link_to season, admin_season_path(season) %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Fetch Season</p>
+
+<%= form_with url: "/admin/seasons", method: :post do |form| %>
+  <%= form.label :year, "Year" %>
+  <%= form.text_field :year %>
+  <%= form.submit "Submit" %>
+<% end %>
